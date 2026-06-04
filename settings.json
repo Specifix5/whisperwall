@@ -1,0 +1,68 @@
+{
+	"turnstile": {
+		"posts": false,
+		"uploads": false
+	},
+	"boards": [
+		{
+			"code": "g",
+			"name": "Technology",
+			"category": "All Boards",
+			"color": "#c8d684",
+			"description": "Hardware, software, setups, self-hosting, and tiny terminal arguments.",
+			"banners": [
+				"https://files.hatsune.lol/uploads/26d6adfd-af51-45c6-aa32-6407d6381530.webp?fn=g_banner.webp"
+			]
+		},
+		{
+			"code": "b",
+			"name": "Random",
+			"category": "All Boards",
+			"color": "#d7cf8a",
+			"description": "Anything and everything, casual talk whatever lol.",
+			"banners": [
+				"https://files.hatsune.lol/uploads/b22fef70-e35a-49f6-99dd-d15ccddded0a.webp?fn=b_banner.webp"
+			]
+		},
+		{
+			"code": "mu",
+			"name": "Music",
+			"category": "All Boards",
+			"color": "#b9d58f",
+			"description": "Albums, scenes, instruments, and listening threads.",
+			"banners": [
+				"https://files.hatsune.lol/uploads/d2d0a8cf-20e1-475e-b126-8449146fcc73.webp?fn=mu_banner.webp"
+			]
+		},
+		{
+			"code": "v",
+			"name": "Video Games",
+			"category": "All Boards",
+			"color": "#d0d48d",
+			"description": "Games, hardware, speedruns, and patch-note quarrels.",
+			"banners": [
+				"https://files.hatsune.lol/uploads/7840f010-79ee-4910-9b55-5d8c420f93c8.webp?fn=v_banner.webp"
+			]
+		},
+		{
+			"code": "ac",
+			"name": "Academia",
+			"category": "All Boards",
+			"color": "#b7d1a0",
+			"description": "Academic discussions and study-related threads.",
+			"banners": [
+				"https://files.hatsune.lol/uploads/a2c10818-c56b-4e53-ad55-0c418b26f8f1.webp?fn=ac_banner.webp"
+			]
+		},
+		{
+			"code": "a",
+			"name": "Anime & Manga",
+			"category": "All Boards",
+			"color": "#d6c987",
+			"description": "Anime and manga.",
+			"banners": [
+				"https://files.hatsune.lol/uploads/b6ed1b13-cee0-4859-81e5-611772a62f68.webp?fn=a_banner.webp"
+			]
+		}
+	]
+}

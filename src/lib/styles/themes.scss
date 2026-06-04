@@ -1,0 +1,86 @@
+$colors: (
+	'primary': #6e637d,
+	'primary-soft': #82768f,
+	'accent': #c6b6dc,
+	'accent-strong': #d7c7ef,
+	'secondary': #9990a7,
+	'success': #b7f0c2,
+	'danger': #ff9cba,
+	'warning': #d7c7ef,
+	'info': #c8b6ff,
+	'ink': #16151a,
+	'paper': #d7c7ef,
+	'link': #d2c4e2,
+	'shadow': #0c0b0f,
+	'border': #46404d,
+	'border-strong': #675d75,
+	'input': #201e25,
+	'post': #1f1d23,
+	'post-active': #242129,
+	'reply': #232129,
+	'surface': #18171c,
+	'surface-alt': #201e25,
+	'text': #f4eef8,
+	'text-muted': #c9c1d1,
+	'text-subtle': #958b9f,
+	'background': #181420
+);
+
+$fonts: (
+	'base': "'Trebuchet MS', Arial, Helvetica, ui-sans-serif, system-ui, sans-serif",
+	'mono': "'Courier New', monospace",
+	'buttons-large': "'Trebuchet MS', Arial, Helvetica, ui-sans-serif, system-ui, sans-serif",
+	'buttons-small': "'Trebuchet MS', Arial, Helvetica, ui-sans-serif, system-ui, sans-serif",
+	'boardrails-header': "'Trebuchet MS', Arial, Helvetica, ui-sans-serif, system-ui, sans-serif",
+	'post': 'Arial, Helvetica, ui-sans-serif, system-ui, sans-serif'
+);
+
+$borders: (
+	'dash': 1px dotted var(--color-border),
+	'dash-strong': 1px dashed var(--color-border-strong),
+	'accent-thin': 1px solid var(--color-accent),
+	'accent-dash-thin': 1px dotted var(--color-accent)
+);
+
+:root {
+	@each $name, $value in $colors {
+		--color-#{$name}: #{$value};
+	}
+
+	@each $name, $value in $fonts {
+		--font-#{$name}: #{$value};
+	}
+
+	@each $name, $value in $borders {
+		--border-#{$name}: #{$value};
+	}
+}
+
+[data-theme='sankyuu'],
+[data-theme='miku'] {
+	--color-primary: #667f86;
+	--color-primary-soft: #7d99a0;
+	--color-accent: #9ccfd2;
+	--color-accent-strong: #b4e2e4;
+	--color-secondary: #909ea3;
+	--color-success: #b7f0c2;
+	--color-danger: #ff9cba;
+	--color-warning: #d2dddf;
+	--color-info: #9edfe6;
+	--color-ink: #15191b;
+	--color-paper: #b4e2e4;
+	--color-link: #b2d9dc;
+	--color-shadow: #0b0e10;
+	--color-border: #424b50;
+	--color-border-strong: #65747a;
+	--color-input: #202528;
+	--color-post: #1f2427;
+	--color-post-active: #252b2f;
+	--color-reply: #23282c;
+	--color-surface: #181b1f;
+	--color-surface-alt: #202528;
+	--color-text: #f0f6f7;
+	--color-text-muted: #c4ccce;
+	--color-text-subtle: #8e9a9e;
+	--color-background: #171b20;
+}
