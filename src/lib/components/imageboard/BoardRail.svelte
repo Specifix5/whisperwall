@@ -2,6 +2,7 @@
 	import { resolve } from '$app/paths';
 	import { page } from '$app/state';
 	import { onMount } from 'svelte';
+	import pkg from '../../../../package.json';
 	import Icon from './Icon.svelte';
 
 	type Board = {
@@ -42,6 +43,7 @@
 	const globalRulesHref = $derived(resolve('/rules'));
 	const blotterHref = $derived(resolve('/blotter'));
 	const faqHref = $derived(resolve('/faq'));
+	const projectVersion = pkg.version;
 
 	function applyTheme(value: string) {
 		const nextTheme = value === 'miku' ? 'sankyuu' : value;
@@ -159,7 +161,9 @@
 			</select>
 		</label>
 		<p>
-			<span>whisperwall v0.1</span><span><a href="https://github.com/Specifix5">github</a></span>
+			<span>whisperwall v{projectVersion}</span><span
+				><a href="https://github.com/Specifix5/whisperwall">github</a></span
+			>
 		</p>
 	</div>
 </aside>
