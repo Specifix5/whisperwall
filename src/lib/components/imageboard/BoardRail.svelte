@@ -44,6 +44,9 @@
 	const blotterHref = $derived(resolve('/blotter'));
 	const faqHref = $derived(resolve('/faq'));
 	const projectVersion = pkg.version;
+	const commitHash = __APP_COMMIT_HASH__;
+	const repoHref = 'https://github.com/Specifix5/whisperwall';
+	const commitHref = `${repoHref}/commit/${commitHash}`;
 
 	function applyTheme(value: string) {
 		const nextTheme = value === 'miku' ? 'sankyuu' : value;
@@ -160,10 +163,9 @@
 				<option value="sankyuu">miku</option>
 			</select>
 		</label>
-		<p>
-			<span>whisperwall v{projectVersion}</span><span
-				><a href="https://github.com/Specifix5/whisperwall">github</a></span
-			>
+		<p class="build-meta">
+			<span>whisperwall v{projectVersion}</span>
+			<a href={commitHref}>{commitHash}</a>
 		</p>
 	</div>
 </aside>

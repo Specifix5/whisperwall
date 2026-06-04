@@ -671,10 +671,37 @@ textarea::placeholder {
 
 .rail-footer p {
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: space-between;
 	margin: 1rem 0 0;
 	color: var(--color-text-subtle);
 	font-size: 0.78rem;
+}
+
+.rail-footer .footer-links {
+	margin-top: 0.8rem;
+}
+
+.rail-footer .footer-links,
+.rail-footer .build-meta {
+	justify-content: flex-start;
+	gap: 0.55rem;
+}
+
+.rail-footer .build-meta {
+	margin-top: 0.35rem;
+}
+
+.rail-footer .footer-links a,
+.rail-footer .build-meta a {
+	color: var(--color-link);
+	text-decoration: underline;
+	text-underline-offset: 0.12em;
+}
+
+.rail-footer .build-meta span,
+.rail-footer .build-meta a {
+	white-space: nowrap;
 }
 
 .theme-picker {
@@ -2150,6 +2177,11 @@ dd {
 	.right-rail {
 		margin: 0 0.35rem 0.6rem;
 		padding: 0.55rem;
+	}
+
+	.rail-footer .footer-links,
+	.rail-footer .build-meta {
+		gap: 0.35rem 0.55rem;
 	}
 
 	.thread {
