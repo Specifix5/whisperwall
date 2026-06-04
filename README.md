@@ -19,7 +19,7 @@ bun run db:push
 bun run dev
 ```
 
-Open `http://127.0.0.1:5178`.
+Open `http://127.0.0.1:5173`.
 
 ## Notes
 
