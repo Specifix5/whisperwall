@@ -14,9 +14,9 @@ Whisperwall is a compact anonymous imageboard built with SvelteKit, Postgres, Dr
 ```bash
 cp .env.example .env
 docker compose up -d
-npm install
-npm run db:push
-npm run dev
+bun install
+bun run db:push
+bun run dev
 ```
 
 Open `http://127.0.0.1:5178`.
