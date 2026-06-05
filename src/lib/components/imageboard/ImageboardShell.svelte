@@ -27,6 +27,7 @@
 		search = '',
 		showSearch = false,
 		threadId = null,
+		allowReplies = true,
 		replyAction = '?/reply',
 		turnstile = { posts: true, uploads: true },
 		sidebarActive = false,
@@ -40,6 +41,7 @@
 		search?: string;
 		showSearch?: boolean;
 		threadId?: number | null;
+		allowReplies?: boolean;
 		replyAction?: string;
 		turnstile?: { posts: boolean; uploads: boolean };
 		sidebarActive?: boolean;
@@ -112,7 +114,7 @@
 	/>
 
 	<main class="content">
-		{#if threadId}
+		{#if threadId && allowReplies}
 			<div class="reply-trigger">
 				<button class="primary-button" type="button" onclick={() => (replyWindowOpen = true)}>
 					Post a Reply
@@ -128,7 +130,7 @@
 		</aside>
 	{/if}
 
-	{#if threadId}
+	{#if threadId && allowReplies}
 		<div class="floating-reply">
 			<Window title="Quick Reply" open={replyWindowOpen} onClose={() => (replyWindowOpen = false)}>
 				<QuickReplyPanel {threadId} action={replyAction} {turnstile} />

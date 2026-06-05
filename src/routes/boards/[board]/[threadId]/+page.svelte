@@ -226,6 +226,7 @@
 	}
 
 	function appendQuote(postId: number) {
+		if (thread.archived) return;
 		const textarea = document.querySelector<HTMLTextAreaElement>('[data-quick-reply-body]');
 		const quoteInput = document.querySelector<HTMLInputElement>('[data-quick-reply-quote]');
 		if (!textarea) {
@@ -242,6 +243,7 @@
 	}
 
 	function focusQuickReply() {
+		if (thread.archived) return;
 		const textarea = document.querySelector<HTMLTextAreaElement>('[data-quick-reply-body]');
 		if (!textarea) {
 			window.dispatchEvent(new CustomEvent('open-quick-reply'));
@@ -428,6 +430,7 @@
 	activities={data.activities}
 	favoriteCodes={data.favoriteCodes}
 	threadId={thread.id}
+	allowReplies={!thread.archived}
 	replyAction="?/reply"
 	showSearch
 	turnstile={data.turnstile}
@@ -455,6 +458,10 @@
 
 	{#if form?.message}
 		<div class="notice" role="status">{form.message}</div>
+	{/if}
+
+	{#if thread.archived}
+		<div class="notice" role="status">This thread is archived and closed to new replies.</div>
 	{/if}
 
 	<section class="thread-stack" aria-label="Thread">
@@ -487,9 +494,11 @@
 						onmouseleave={hidePreview}>&gt;&gt;{sourceId}{isOpPost(sourceId) ? ' (OP)' : ''}</a
 					>
 				{/each}
-				<button class="tiny-link bracket-link" type="button" onclick={focusQuickReply}>
-					Quick Reply
-				</button>
+				{#if !thread.archived}
+					<button class="tiny-link bracket-link" type="button" onclick={focusQuickReply}>
+						Quick Reply
+					</button>
+				{/if}
 				{#if thread.pinned}<span class="status-pill">Pinned</span>{/if}
 				{#if thread.archived}<span class="status-pill">Archived</span>{/if}
 				{#if thread.spoiler}<span class="status-pill">Spoiler</span>{/if}

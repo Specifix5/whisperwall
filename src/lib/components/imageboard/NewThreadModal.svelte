@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import FileShelf from './FileShelf.svelte';
 	import Turnstile from './Turnstile.svelte';
 
@@ -13,6 +14,10 @@
 		onClose?: () => void;
 		turnstile?: { posts: boolean; uploads: boolean };
 	} = $props();
+
+	const createThreadAction = $derived(
+		`${resolve('/boards/[board]', { board: boardCode })}?/createThread`
+	);
 </script>
 
 {#if open}
@@ -20,7 +25,7 @@
 		<form
 			class="modal"
 			method="POST"
-			action="?/createThread"
+			action={createThreadAction}
 		>
 			<div class="panel-title">
 				<h2>New Thread on /{boardCode}/</h2>

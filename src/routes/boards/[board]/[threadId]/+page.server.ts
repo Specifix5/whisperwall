@@ -148,6 +148,7 @@ export const actions = {
 		const name = String(form.get('name') ?? '').trim();
 		const thread = await getThread(params.board, threadId, { incrementViews: false });
 		if (!thread) return fail(404, { message: 'Thread not found.' });
+		if (thread.archived) return fail(403, { message: 'Archived threads are closed to new replies.' });
 		const postIdentity = await resolveIdentity(name, options);
 		const cookieOpSecretHash = opSecretHashFromCookie(cookies, threadId);
 		const isOp = Boolean(
