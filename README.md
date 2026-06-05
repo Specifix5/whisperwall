@@ -14,11 +14,15 @@ Whisperwall is a compact anonymous imageboard built with SvelteKit, Postgres, Dr
 ```mermaid
 flowchart TD
     U[User Browser]
+    CF[Cloudflare Proxy and CDN]
 
-    U --> L["/ landing page"]
-    U --> B["/boards/[board] catalog or archive"]
-    U --> T["/boards/[board]/[threadId] thread view"]
-    U --> S1["/rules, /faq, /blotter"]
+    U --> CF
+
+    CF --> CP["cache html and static assets when allowed"]
+    CF --> L["/ landing page"]
+    CF --> B["/boards/[board] catalog or archive"]
+    CF --> T["/boards/[board]/[threadId] thread view"]
+    CF --> S1["/rules, /faq, /blotter"]
 
     L --> LD["load landing data"]
     B --> BL["load board, threads, banners, activities, favorites, turnstile settings"]
@@ -55,12 +59,17 @@ flowchart TD
     FA --> CK[(Favorite boards cookie)]
 
     U --> ACT["live activity rail"]
-    ACT --> SSE["GET /api/activity SSE"]
+    ACT --> CF
+    CF --> SSE["GET /api/activity SSE"]
     SSE --> PG
 
     UI --> UV["upload checks: size, mime sniffing, optional turnstile"]
     UV --> SH["Sharp converts still images to WebP"]
     UV --> FS[(stored upload file)]
+
+    CF --> UI
+    CF --> TP
+    CF --> FA
 
     TP --> REDIS[(Redis turnstile pass storage)]
 
@@ -71,14 +80,6 @@ flowchart TD
     CFG --> UV
     CFG --> TP
 ```
-
-### Reading The Diagram
-
-- `settings.json` and env values drive board definitions, banners, and whether Turnstile is enabled.
-- Post creation and reply creation both go through the same safety layers: captcha pass, attachment parsing, and moderation checks before writing to Postgres.
-- Image uploads are handled separately through `/api/upload-image`, where still images are normalized to WebP and files are stored before the post action submits.
-- Favorites are lightweight and cookie-backed, while live activity updates stream from `/api/activity`.
-- Archived threads can still be viewed, but replies are blocked by both the UI and the server action guard.
 
 ## Local Setup
 
