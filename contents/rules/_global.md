@@ -44,3 +44,7 @@ media, and board culture. Keep the place usable for other people.
 Posts are user-submitted third-party content. Whisperwall does not endorse user posts and is
 not responsible for third-party claims, copyright ownership, or licenses attached to content
 submitted by users.
+
+## Contact
+
+You can email us at `miku@hatsune.lol` for support

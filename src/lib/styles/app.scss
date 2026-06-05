@@ -735,6 +735,7 @@ textarea::placeholder {
 .landing-stats,
 .landing-board-list,
 .landing-recent,
+.landing-contact,
 .info-page {
 	border: var(--dash);
 	border-radius: var(--radius);
@@ -903,6 +904,40 @@ hr {
 	border: var(--dash-strong);
 	object-fit: cover;
 	background: var(--color-surface-alt);
+}
+
+.landing-contact {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 0.45rem 0.75rem;
+	padding: 0.75rem 1rem;
+	color: var(--color-text-muted);
+	font-family: var(--font-mono);
+	font-size: 0.82rem;
+}
+
+.landing-contact span {
+	color: var(--color-text-subtle);
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+}
+
+.landing-contact a {
+	padding: 0;
+	border: 0;
+	background: transparent;
+	color: var(--color-link);
+	font-family: var(--font-mono);
+	text-decoration: underline;
+	text-underline-offset: 0.12em;
+	box-shadow: none;
+}
+
+.landing-contact a:hover {
+	transform: none;
+	box-shadow: none;
+	color: var(--color-paper);
 }
 
 .board-banner {
@@ -2158,6 +2193,35 @@ dd {
 		width: auto;
 		max-width: min(100%, calc(100vw - 2rem));
 		max-height: 70vh;
+	}
+}
+
+@media (min-width: 700px) and (max-width: 820px) {
+	.top-actions {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-end;
+		gap: 0.35rem;
+	}
+
+	.search {
+		flex: 1 1 16rem;
+	}
+
+	.search input {
+		width: 100%;
+	}
+
+	.desktop-only {
+		display: grid;
+	}
+
+	.rail-header {
+		grid-template-columns: auto auto 1fr;
+	}
+
+	.rail-header .rail-toggle {
+		display: grid;
 	}
 }
 

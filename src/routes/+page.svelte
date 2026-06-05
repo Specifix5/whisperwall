@@ -114,5 +114,10 @@
 				{/each}
 			</section>
 		</div>
+
+		<footer class="landing-contact" aria-label="Contact">
+			<span>Contact</span>
+			<a href="mailto:miku@hatsune.lol">miku@hatsune.lol</a>
+		</footer>
 	</section>
 </ImageboardShell>

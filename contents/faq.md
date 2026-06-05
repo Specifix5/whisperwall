@@ -88,3 +88,7 @@ or server-side profile.
 ## Can boards have their own rules?
 
 Yes. Use the rules button inside a board to see board-specific rules. Global rules still apply.
+
+## Contact
+
+You can email us at `miku@hatsune.lol` for support
